@@ -7,6 +7,8 @@ Clone git:
 
 ```
 git clone https://github.com/RNDpacman/blockchain_dns_system.git
+```
+```
 cd ./blockchain_dns_system
 ```
 
