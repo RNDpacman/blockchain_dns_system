@@ -26,11 +26,17 @@ docker-compose up -d
 
 Wait a while for the blockchain data to download.
 
-And try it:
+And try it
 
+Alfis DNS:
 ```
 dig @127.0.0.1 howto.ygg aaaa
+```
+EmerDNS:
+```
 dig @127.0.0.1 rtfm.emc
+```
+Clearnet
+```
 dig @127.0.0.1 iana.org
- 
 ```
