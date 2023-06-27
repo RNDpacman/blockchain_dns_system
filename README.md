@@ -24,9 +24,8 @@ Run containers with a compose:
 docker-compose up -d
 ```
 
-Wait a while for the blockchain data to download.
+Wait a while for the blockchain data to download and try it.
 
-And try it
 
 Alfis DNS:
 ```
