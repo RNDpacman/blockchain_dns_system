@@ -17,8 +17,6 @@ services:
   unbound:
     image: blockchain-unbound
     container_name: blockchain-unbound
-#    volumes:
-#      - /home/shedar/app/docker/unbound/config:/opt/unbound/etc/unbound
     restart: always
     ports:
       - "53:53/udp"
