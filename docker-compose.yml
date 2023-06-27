@@ -1,0 +1,54 @@
+version: '3.6'
+
+networks:
+  dns-net:
+    ipam:
+      config:
+        - subnet: 172.24.10.0/24
+
+volumes:
+  emc_data:
+    name: emer_data
+  alfis_data:
+    name: alfis_data
+
+
+services:
+  unbound:
+    image: blockchain-unbound
+    container_name: blockchain-unbound
+#    volumes:
+#      - /home/shedar/app/docker/unbound/config:/opt/unbound/etc/unbound
+    restart: always
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    networks:
+      - dns-net
+
+  emc:
+    image: emercoin/core:0.7.12
+    container_name: emc
+    volumes:
+      - emc_data:/srv/emercoind
+      - /etc/localtime:/etc/localtime:ro
+    networks:
+      dns-net:
+        ipv4_address: 172.24.10.10
+    restart: unless-stopped
+    stop_grace_period: 30s
+    command: /bin/emercoind -datadir=/srv/emercoind -conf=/srv/emercoind/emercoin.conf -printtoconsole
+
+  alfis:
+    image: cofob/alfis
+    container_name: alfis
+    volumes:
+      - alfis_data:/storage
+    restart: unless-stopped
+    stop_grace_period: 20s
+    networks:
+      dns-net:
+        ipv4_address: 172.24.10.20
+
+   
+
