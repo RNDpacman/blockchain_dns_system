@@ -29,13 +29,15 @@ Wait a while for the blockchain data to download and try it.
 
 Alfis DNS:
 ```
-dig @127.0.0.1 howto.ygg aaaa
+host howto.ygg 127.0.0.1
 ```
 EmerDNS:
 ```
-dig @127.0.0.1 rtfm.emc
+host rtfm.emc 127.0.0.1
+
 ```
 Clearnet
 ```
-dig @127.0.0.1 iana.org
+host iana.org 127.0.0.1
+
 ```
