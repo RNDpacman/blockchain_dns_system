@@ -15,7 +15,7 @@ cd ./blockchain_dns_system
 Run buld docker image:
 
 ```
-docker build -t unbound ./unbound
+docker build -t blockchain-unbound ./unbound
 ```
 
 Run containers with a compose:
