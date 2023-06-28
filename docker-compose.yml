@@ -2,6 +2,7 @@ version: '3.6'
 
 networks:
   dns-net:
+    name: dns_net
     ipam:
       config:
         - subnet: 172.24.10.0/24
