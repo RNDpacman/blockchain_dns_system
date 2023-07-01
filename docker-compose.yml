@@ -8,17 +8,18 @@ networks:
         - subnet: 172.24.10.0/24
 
 volumes:
-  emc_data:
-    name: emer_data
   alfis_data:
     name: alfis_data
-
+  emc_data:
+    name: emc_data
 
 services:
   unbound:
     image: blockchain-unbound
+    build:
+      context: ./unbound
     container_name: blockchain-unbound
-    restart: always
+    restart: unless-stopped
     ports:
       - "53:53/udp"
       - "53:53/tcp"
@@ -26,17 +27,16 @@ services:
       - dns-net
 
   emc:
-    image: emercoin/core:0.7.12
-    container_name: emc
+    image: wg00/emercoin:amd64-0.7.12
+    container_name: emer-dns
     volumes:
-      - emc_data:/srv/emercoind
+      - emc_data:/emc
       - /etc/localtime:/etc/localtime:ro
     networks:
       dns-net:
         ipv4_address: 172.24.10.10
     restart: unless-stopped
     stop_grace_period: 30s
-    command: /bin/emercoind -datadir=/srv/emercoind -conf=/srv/emercoind/emercoin.conf -printtoconsole
 
   alfis:
     image: cofob/alfis
@@ -44,7 +44,7 @@ services:
     volumes:
       - alfis_data:/storage
     restart: unless-stopped
-    stop_grace_period: 20s
+    stop_grace_period: 10s
     networks:
       dns-net:
         ipv4_address: 172.24.10.20
