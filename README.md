@@ -12,12 +12,6 @@ git clone https://github.com/RNDpacman/blockchain_dns_system.git
 cd ./blockchain_dns_system
 ```
 
-Run buld docker image:
-
-```
-docker build -t blockchain-unbound ./unbound
-```
-
 Run containers with a compose:
 
 ```
@@ -39,5 +33,4 @@ host rtfm.emc 127.0.0.1
 Clearnet
 ```
 host iana.org 127.0.0.1
-
 ```
