@@ -27,7 +27,7 @@ services:
       - dns-net
 
   emc:
-    image: wg00/emercoin:0.7.12
+    image: wg00/emercoin:0.8.3
     container_name: emer-dns
     volumes:
       - emc_data:/emc
