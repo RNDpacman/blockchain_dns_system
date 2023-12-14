@@ -10,9 +10,6 @@ LABEL org.opencontainers.image.source="https://github.com/RNDpacman/blockchain_d
 
 WORKDIR /opt/unbound/etc/unbound
 
-COPY ./emc-stub-records.conf . && \
-     ./insecure-dns.conf . && \
-     ./unbound.conf . && \
-     ./ygg-forward-records.conf .
+COPY ./emc-stub-records.conf ./insecure-dns.conf ./unbound.conf ./ygg-forward-records.conf .
 
 
