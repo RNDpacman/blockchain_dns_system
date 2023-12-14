@@ -20,6 +20,10 @@ docker-compose up -d
 
 Wait a while for the blockchain data to download and try it.
 
+Check progress download emercoin blockchain:
+```
+docker exec emer-dns emercoin-cli -datadir=/emc getinfo
+```
 
 Alfis DNS:
 ```
